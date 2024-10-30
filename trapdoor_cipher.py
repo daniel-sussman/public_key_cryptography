@@ -103,18 +103,30 @@ def encrypt_message(message, public_key):
     plaintext = [ord(char) for char in message]
     ciphertext = [encrypt(char, public_key, print_stuff=False) for char in plaintext]
     result = stringify(ciphertext)
-    print(f"1) get the ascii value of each character: {plaintext}")
-    print(f"2) encrypt each value: {ciphertext}")
-    print("3) output the result to a single string")
+    print(
+        "\n" \
+        f"  1) Get the ascii value of each character:\n" \
+        f"{plaintext}\n\n" \
+        f"  2) Encrypt each value:\n" \
+        f"{ciphertext}\n\n" \
+        "  3) Output the result to a single string.\n"
+    )
+
     return result
 
 def decrypt_message(encrypted_message, private_key):
     ciphertext = destringify(encrypted_message)
     plaintext = [decrypt(char, private_key, print_stuff=False) for char in ciphertext]
     result = ''.join(chr(num) for num in plaintext)
-    print(f"1) decompose the string into a list of values: {ciphertext}")
-    print(f"2) decrypt each value: {plaintext}")
-    print("3) convert ascii values back to characters")
+    print(
+        "\n" \
+        f"  1) Decompose the string into a list of values:\n" \
+        f"{ciphertext}\n\n" \
+        f"  2) Decrypt each value:\n" \
+        f"{plaintext}\n\n" \
+        "  3) Convert ascii values back to characters.\n"
+    )
+
     return result
 
 def stringify(message_string):
